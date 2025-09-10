@@ -9,7 +9,7 @@ def choose_interface(interactive: Optional[bool] = None) -> str:
     - IDS_INTERFACE (env) prioritaire si définie et présente
     - Sinon 1ʳᵉ interface disponible
     - Interaction utilisateur uniquement si 'interactive=True' OU si interactive=None
-      ET qu'on est dans un TTY (et pas sous pytest/CI).
+      ET qu'on est dans un TTY (et pas sous pytest).
     """
     # Détecte si on est en mode interactif
     if interactive is None:
