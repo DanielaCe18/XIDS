@@ -34,7 +34,6 @@ def _dns_query(src="10.0.0.3", qname="example.com"):
 @pytest.fixture
 def cap(monkeypatch):
     c = Capture()
-    # on ne sniffe pas dans les tests; on remplit c.packets
     c.packets = PacketList()
     # on abaisse les seuils pour tests rapides
     monkeypatch.setattr(capture_mod, "THRESH_SYN_SCAN", 5, raising=True)
