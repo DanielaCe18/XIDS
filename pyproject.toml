@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "template-code"
+version = "0.1.0"
+description = ""
+authors = ["Daniela Ce <cedaniela613@gmail.com>"]
+readme = "README.md"
+
+# On expose 'src' comme package racine => les imports 'src.tp1....' fonctionnent
+packages = [
+  { include = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+scapy = "^2.6.0"
+pygal = "^3.0.5"
+reportlab = "^4.0.0"
+svglib = "^1.5.1"
+colorama = "^0.4.6"
+
+# pytest en dev (option moderne avec les "groups")
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+# Comme 'src' est un package racine, on référence le main avec son chemin complet
+tp1 = "src.tp1.main:main"
