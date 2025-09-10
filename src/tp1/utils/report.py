@@ -22,7 +22,7 @@ class Report:
         self.array_data: List[List[str]] = []
         self.svg_path = os.path.splitext(self.filename)[0] + "_protocols.svg"
 
-    # ---------- Générateurs de contenu ----------
+    # Générateurs de contenu
     def _make_table_data(self) -> List[List[str]]:
         counts: Dict[str, int] = dict(self.capture.protocol_counts or {})
         total = sum(counts.values()) or 1
@@ -56,7 +56,7 @@ class Report:
         elif param == "array":
             self.array_data = self._make_table_data()
 
-    # ---------- Construction du PDF ----------
+    # Construction du PDF
     def _build_pdf(self) -> None:
         styles = getSampleStyleSheet()
         h1 = styles["Heading1"]
@@ -99,7 +99,7 @@ class Report:
             elements.append(table)
             elements.append(Spacer(1, 0.6 * cm))
 
-        # Graphique (SVG) — inséré directement dans le PDF (plus de PDF séparé)
+        # Graphique (SVG) 
         if os.path.exists(self.svg_path):
             elements.append(Paragraph("<b>Graphique des protocoles</b>", styles["Heading2"]))
             elements.append(Spacer(1, 0.2 * cm))
