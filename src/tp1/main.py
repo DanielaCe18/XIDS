@@ -5,7 +5,7 @@ from src.tp1.utils.branding import print_banner  # ← NEW
 
 
 def main():
-    print_banner()  # ← affiche CoreIDS + slogan + infos OS
+    print_banner()  
     logger.info("Starting IDS/IPS...")
 
     capture = Capture()
