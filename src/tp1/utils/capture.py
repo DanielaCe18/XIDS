@@ -118,7 +118,7 @@ THRESH_BRUTEFORCE_CONN = 60
 THRESH_HTTP_ENUM_PATHS = 120
 THRESH_HTTP_FLOOD = 500
 
-# Optionnel (utile si tu veux tronquer des payloads dans le rapport)
+
 MAX_DETAIL_LEN = 180
 
 
@@ -219,7 +219,6 @@ class Capture:
         self.protocol_counts = counts
         return dict(counts)
 
-    # ---------- helpers ----------
     def _extract_http_info(self, pkt):
         """Retourne un dict compact avec method/path/host/url pour une requête HTTP."""
         info = {"method": "", "path": "", "host": "", "url": ""}
@@ -271,7 +270,7 @@ class Capture:
 
         return info
 
-    # ---------- detections ----------
+    # detections
     def _detect_arp_spoofing(self) -> None:
         ip_to_macs: Dict[str, set] = defaultdict(set)
         for pkt in self.packets or []:
